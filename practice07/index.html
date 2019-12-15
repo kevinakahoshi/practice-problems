@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    // ## Igpay Atinlay
+
+    // Build a function that will translate text into "Pig Latin" Take the first consonant and move it to the end of a word
+    // and then affix "ay" to the end of that word."
+
+    // - Write a function that takes one parameter
+    // - Parameter 1 - A string
+    // - The function should output your input string translated into Pig Latin
+    // - Example:
+    // - `var myString = "Hello my name is Stu"`
+    // - `translate(myString);
+    // - Output - `"ellohay ymay ameya siay tusay"`
+
+    // #### Making it better!
+
+    // - There are several more rules to Pig Latin, try incorporating as many as you can into your function.
+    // - There are different rules for words that start with vowel sounds or silent letters for example.
+    // - <a href="http://en.wikipedia.org/wiki/Pig_Latin">Here</a> is a link to an explanation of all the rules.
+    // - Also try maintaining capitalization of words that are capitalized in your input string.
+    // - Example:
+    // - `"Hello there"` would be `"Ellohay heretay"`
+    function pigLatin(sentence) {
+      lowerCaseSentence = sentence.toLowerCase();
+      const splitStentence = lowerCaseSentence.split(' ');
+      const newArray = [];
+      for (let index = 0; index < splitStentence.length; index++) {
+        let word = splitStentence[index];
+        newWord = word.substr(1) + word[0];
+        pigLatinWord = newWord + 'ay';
+        newArray.push(pigLatinWord);
+      }
+      firstWord = newArray[0];
+      capitalFirstWord = firstWord.substr(0, 1).toUpperCase() + firstWord.substr(2);
+      newArray[0] = capitalFirstWord;
+      joinedPigLatin = newArray.join(' ')
+      console.log(joinedPigLatin);
+    }
+
+    pigLatin('Hi, my name is Kevin, and I am a software developer');
+  </script>
+</head>
+<body>
+
+</body>
+</html>

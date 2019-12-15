@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+  // Given the following function call:
+  // - numeric_toggles(2);
+
+  // And the resulting output:
+  // - [4, 6, -9, -12, 16, 20, -25, -30];
+
+  // Create a function definition that achieves the output with the given input.
+
+  function numeric_toggles(number) {
+    const arrayToReturn = [];
+    for (let index = 2, incrementNumber = number; index < 6; index++, incrementNumber++) {
+      newNum = incrementNumber * index;
+      secondNewNum = newNum + index;
+      if (index % 2 === 1) {
+        newNum *= -1;
+        secondNewNum *= -1;
+      }
+      arrayToReturn.push(newNum, secondNewNum);
+    }
+    console.log(arrayToReturn);
+  }
+
+  numeric_toggles(2);
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

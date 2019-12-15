@@ -2,9 +2,19 @@
 .makeRed{
 	color: red;
 }
+
 .makeRed.noMakeGreen{
 	color: green;
 }
+
 #iShouldBeYellow{
 	color: yellow;
+}
+
+.noMakeGreen {
+	color: blue;
+}
+
+section {
+	background: purple;
 }
