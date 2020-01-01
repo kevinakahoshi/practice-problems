@@ -7,8 +7,3 @@ function addArrays(array1, array2) {
 
   return outputArray;
 }
-
-var first = [3, -5, 15, 4];
-var second = [3, 18, -5, -4];
-
-addArrays(first, second);
