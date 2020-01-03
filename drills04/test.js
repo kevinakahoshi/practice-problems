@@ -10,11 +10,11 @@ var testVals = [{
   `,
   testVals: {
     inputs: [
-        ['.numConvert'], 
+        ['.numConvert'],
         ['.otherConvert'],
-      
+
     ],
-    outputs:    
+    outputs:
     [  undefined,
        undefined,
     ],
@@ -29,7 +29,7 @@ var testVals = [{
       {
         message: 'all .otherConvert elements must have their text replaced with numbers, if the original was a text number',
         test: ()=> {
-          debugger;
+          // debugger;
           const expected = ['4','8','what?'];
           return Object.values(document.querySelectorAll('.otherConvert')).filter( (e, i)=> $(e).text() === expected[i]).length===document.querySelectorAll('.otherConvert').length;
         }
@@ -44,7 +44,7 @@ var testVals = [{
     For example, if the text of the element was "yo", it would be changed to "yohello"`,
   testVals: {
     inputs: [
-        ['.helloElements', 'hello'], 
+        ['.helloElements', 'hello'],
         ['.moocow', 'moooo'],
     ],
     outputs: [
@@ -92,13 +92,13 @@ var testVals = [{
       {
         message: 'All elements with a class of .noEle should have a class of "nope".  There were no such elements so there should be none',
         test: ()=> {
-          return $(".noEle.nope").length === 0  
+          return $(".noEle.nope").length === 0
         }
       },
       {
         message: 'The element with an id of oneElement should also have a class of invert',
         test: ()=> {
-          return $("#oneElement.invert").length === 1 
+          return $("#oneElement.invert").length === 1
         }
       }
     ]
