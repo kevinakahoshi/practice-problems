@@ -41,14 +41,19 @@ function changeElements(classToTarget){
 
 function appendTextToElement(className, string) {
   var theElementClass = $(className);
-  var theText = theElementClass.text();
-  var combination = theText + string;
-  theElementClass.text(combination);
+  theElementClass.map(index => {
+    var specificElement = $(theElementClass[index]);
+    specificElement.text(specificElement.text() + string);
+  });
 }
 
-function addClass(){
+function addClass(firstClass, secondClass) {
+  var targetClass = $(firstClass);
+  targetClass.addClass(secondClass);
+  return targetClass.length;
 }
 
-function removeElements(){
-
+function removeElements(targetElement) {
+  var elementToRemove = $(targetElement);
+  elementToRemove.remove();
 }
