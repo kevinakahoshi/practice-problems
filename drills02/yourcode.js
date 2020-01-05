@@ -34,23 +34,16 @@ function getMinMaxMean(numbersArray){
 }
 
 function findMode(modeArray){
-  debugger;
-  var counts = {}; // Count the number of occurrences here
-  var compare = 0; // Compare using the stored value
-  var mostFrequent; // Store the most frequent item
+  const sortedArray = modeArray.sort();
+  const tracker = {};
 
-  for (var modeArrayIndex = 0; modeArrayIndex < modeArray.length; modeArrayIndex++) {
-    var value = modeArray[modeArrayIndex];
-    if (counts[value] === undefined) { // If counts[value] doesn't exist, this sets the value to 1
-      counts[value] = 1;
+  for (let index = 0; index < modeArray.length; index++) {
+    if (tracker[modeArray[index]] !== undefined) {
+      tracker[modeArray[index]]++;
     } else {
-      counts[value]++; // If counts[value] does exist, increment by 1
-    }
-
-    if (counts[value] > compare) { // counts[value] > 0 for the first time
-      compare = counts[value]; // Compare to counts[value]
-      mostFrequent = modeArray[modeArrayIndex]; // Most frequent value
+      tracker[modeArray[index]] = 1;
     }
   }
-  return mostFrequent;
+
+  console.log(tracker);
 }
