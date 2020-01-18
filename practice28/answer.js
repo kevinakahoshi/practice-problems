@@ -1,24 +1,60 @@
 function romanNumeralConversion(number) {
   // 2020 = MMXX
-  const splitNumber = [];
-  let mutatedNumber = number;
-  let output = '';
-  let counter = 0;
-  let decrementor = Math.pow(10, mutatedNumber.toString().length - 1);
+  let splitNumber = number.toString().split('');
+  let romanDigit = '';
 
-  if (mutatedNumber.toString().length < 2) {
-    decrementor = 1;
+  if (splitNumber.length > 3) {
+    const firstNumber = parseInt(splitNumber[0]);
+    let firstRoman = '';
+    for (let index = 0; index < firstNumber; index++) {
+      firstRoman += 'M';
+    }
+    romanDigit += firstRoman;
   }
 
-  while (decrementor <= mutatedNumber) {
-    mutatedNumber -= decrementor;
-    counter++;
+  if (splitNumber.length > 2) {
+    const secondNumber = parseInt(splitNumber[1]);
+    let secondRoman = '';
+    if (secondNumber < 4 && secondNumber > 0) {
+      for (let index = 0; index < secondNumber; index++) {
+        secondRoman += 'C';
+      }
+    } else if (secondNumber === 4) {
+      secondRoman += 'CD';
+    } else if (secondNumber > 4 && secondNumber < 9) {
+      let tempRoman = 'D';
+      if (secondNumber > 5) {
+        for (let index = 5; index < secondNumber; index++) {
+          tempRoman += 'C';
+        }
+      }
+      secondRoman += tempRoman;
+    } else {
+      secondRoman += 'CM';
+    }
+    romanDigit += secondRoman;
   }
 
-  splitNumber.push(decrementor * counter);
-  counter = 0;
+  if (splitNumber.length > 1) {
+    const thirdNumber = parseInt(splitNumber[2]);
+    let thirdRoman = '';
+    if (thirdNumber < 4 && thirdNumber > 0) {
+      thirdRoman += 'XXX';
+    } else if (thirdNumber === 4) {
+      thirdRoman += 'XL';
+    } else if (thirdNumber > 4 && thirdNumber < 9) {
+      let tempRoman = 'L';
+      for (let index = 5; index < thirdNumber; index++) {
+        tempRoman += 'X';
+      }
+      thirdRoman += tempRoman;
+    } else {
+      thirdRoman += 'XC';
+    }
+    romanDigit += thirdRoman;
+  }
 
-  console.log(splitNumber);
+  console.log(romanDigit);
 }
 
-romanNumeralConversion(2020);
+romanNumeralConversion(3000);
