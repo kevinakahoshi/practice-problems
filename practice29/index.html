@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Question 20</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    form {
+      width: 600px;
+      padding: 5rem;
+      margin: auto;
+    }
+
+    label, input, button {
+      display: block;
+      font-size: 1.25rem;
+    }
+
+    input, button {
+      border: 1px solid #ccc;
+      border-radius: .5rem;
+    }
+
+    label {
+      margin-bottom: .5rem;
+    }
+
+    input {
+      width: 100%;
+      padding: .5rem;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding: .5rem;
+      width: 100%;
+      background: #4749d3;
+      border-color: #4749d3;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <form id="form">
+    <label>Number 1</label>
+    <input type="text" name="num1">
+    <label>Number 2</label>
+    <input type="text" name="num2">
+    <label>Operator</label>
+    <input type="text" name="operator">
+    <button type="submit">Submit</button>
+  </form>
+  <div class="problem-area"></div>
+
+  <script defer>
+    let h1Id = 1;
+    function doMath(num1, num2, operator) {
+      let result = null;
+      let operatorTest = false;
+      num1 = parseInt(num1);
+      num2 = parseInt(num2);
+      switch (operator) {
+        case '+':
+          result = num1 + num2;
+          operatorTest = true;
+          break;
+        case '-':
+          result = num1 - num2;
+          operatorTest = true;
+          break;
+        case '*':
+        case 'x':
+        case 'X':
+          result = num1 * num2;
+          operatorTest = true;
+          operator = '×';
+          break;
+        case '/':
+          result = num1 / num2;
+          operatorTest = true;
+          operator = '÷';
+          break;
+      }
+
+      const problemArea = document.getElementsByClassName('problem-area');
+      const problemElement = document.createElement('h1');
+      problemElement.setAttribute('id', h1Id);
+
+      if (isNaN(num1) || isNaN(num2) || !operatorTest) {
+        result = 'Tisk tisk tisk... That\'s not right.'
+        problemElement.innerHTML = result;
+      }
+
+      if (!isNaN(num1) && !isNaN(num2) && operatorTest) {
+        problemElement.innerHTML = `${num1} ${operator} ${num2} = ${result}`;
+      }
+
+      problemArea[0].appendChild(problemElement);
+      h1Id++;
+    }
+    const formElement = document.getElementById('form');
+    formElement.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const num1Element = document.getElementsByName('num1');
+      const num1 = num1Element[0].value;
+      const num2Element = document.getElementsByName('num2');
+      const num2 = num2Element[0].value;
+      const operatorElement = document.getElementsByName('operator');
+      const operator = operatorElement[0].value;
+      doMath(num1, num2, operator);
+    });
+  </script>
+</body>
+</html>
