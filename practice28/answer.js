@@ -3,7 +3,7 @@ function romanNumeralConversion(number) {
   let splitNumber = number.toString().split('');
   let romanDigit = '';
 
-  if (splitNumber.length > 3) {
+  if (splitNumber[3]) {
     const firstNumber = parseInt(splitNumber[0]);
     let firstRoman = '';
     for (let index = 0; index < firstNumber; index++) {
@@ -12,7 +12,7 @@ function romanNumeralConversion(number) {
     romanDigit += firstRoman;
   }
 
-  if (splitNumber.length > 2) {
+  if (splitNumber[2]) {
     const secondNumber = parseInt(splitNumber[1]);
     let secondRoman = '';
     if (secondNumber < 4 && secondNumber > 0) {
@@ -35,7 +35,7 @@ function romanNumeralConversion(number) {
     romanDigit += secondRoman;
   }
 
-  if (splitNumber.length > 1) {
+  if (splitNumber[1]) {
     const thirdNumber = parseInt(splitNumber[2]);
     let thirdRoman = '';
     if (thirdNumber < 4 && thirdNumber > 0) {
