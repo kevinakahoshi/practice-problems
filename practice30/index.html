@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Practice 30</title>
+  <script>
+    function randomRange(startNum, endNum) {
+      if (typeof startNum === 'object' && endNum === undefined) {
+        return startNum[Math.floor(Math.random() * (startNum.length))];
+      }
+      return Math.floor(Math.random() * (endNum - startNum)) + startNum;
+    }
+  </script>
+</head>
+<body>
+  <h1>Practice 30</h1>
+</body>
+</html>
