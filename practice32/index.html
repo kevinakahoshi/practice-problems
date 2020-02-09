@@ -16,10 +16,8 @@
     // - Return: 'is'
 
     function findMiddleLetter(someString) {
-      let middle = null;
-      if (someString.length % 2 === 0) {
-
-      }
+      return (someString.length / 2) % 2 === 0 ? ((someString[Math.floor(someString.length /
+      2) - 1]) + someString[Math.floor(someString.length / 2)]) : someString[Math.floor(someString.length / 2)];
     }
   </script>
 </head>
