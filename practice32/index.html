@@ -16,7 +16,7 @@
     // - Return: 'is'
 
     function findMiddleLetter(someString) {
-      return (someString.length / 2) % 2 === 0 ? ((someString[Math.floor(someString.length /
+      return someString.length % 2 === 0 ? ((someString[Math.floor(someString.length /
       2) - 1]) + someString[Math.floor(someString.length / 2)]) : someString[Math.floor(someString.length / 2)];
     }
   </script>
